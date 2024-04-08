@@ -1,0 +1,3 @@
+
+step 1: Learn how to use open weather api 
+step 2: adjust dom according to the information provided

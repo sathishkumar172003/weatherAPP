@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./config.js" defer></script>
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <article id="container">
+      <header class="card-header">
+        <form action="#" method="">
+          <input
+            type="text"
+            class="search_text"
+            name="city"
+            placeholder="City Name"
+          />
+          <button type="submit" class="search_button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </header>
+
+      <section class="card-body hidden hidden_block">
+        <img src="./img/clear.png" alt="sun image" class="weather_icon" />
+
+        <h1 class="temperature">22°C</h1>
+        <h2 class="city_name">Bengaluru</h2>
+      </section>
+
+      <section class="card-footer hidden hidden_block">
+        <div class="humidity">
+          <img src="./img/humidity.png" alt="" class="humidityImg" />
+
+          <h1 class="humidity_text">53%</h1>
+          <span>Humidity</span>
+        </div>
+
+        <div class="wind_speed">
+          <img src="./img/wind.png" alt="" class="windImg" />
+          <h1 class="wind_speed_text">5.66 <span class="kmh">km/h</span></h1>
+          <span> wind speed </span>
+        </div>
+      </section>
+    </article>
+  </body>
+</html>

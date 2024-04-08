@@ -1,0 +1,98 @@
+/** css reset */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "poppins", "sans-serif";
+}
+
+body {
+  background: #222;
+}
+article#container {
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  padding: 40px 35px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 100px auto 0;
+}
+
+.card-header {
+  height: 70px;
+  display: flex;
+}
+.card-header form {
+  width: 100%;
+}
+
+.search_text {
+  height: 80%;
+  width: 70%;
+  border-radius: 20px;
+  font-size: 30px;
+  background: #ebfffc;
+  outline: 0;
+}
+
+.search_button {
+  border-radius: 90%;
+  height: 80%;
+  width: 15%;
+  font-size: 26px;
+  margin-left: 20px;
+}
+
+.card-body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.temperature {
+  font-size: 3.5rem;
+}
+.city_name {
+  font-size: 1.7rem;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.card-footer div {
+  width: 40%;
+}
+
+.windImg {
+  height: 50px;
+  float: left;
+}
+
+.humidityImg {
+  height: 50px;
+  float: left;
+}
+
+.card-footer > div > h1 {
+  font-size: 2rem;
+}
+
+.card-footer p {
+  font-size: 0.7rem;
+}
+
+.kmh {
+  font-size: 1rem;
+}
