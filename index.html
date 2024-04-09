@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -12,8 +12,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="./config.js" defer></script>
-    <script src="./index.js" defer></script>
+
+    <script src="./src/js/controller.js" type="module" defer></script>
   </head>
   <body>
     <article id="container">
@@ -32,7 +32,7 @@
       </header>
 
       <section class="card-body hidden hidden_block">
-        <img src="./img/clear.png" alt="sun image" class="weather_icon" />
+        <img src="./src/img/clear.png" alt="sun image" class="weather_icon" />
 
         <h1 class="temperature">22°C</h1>
         <h2 class="city_name">Bengaluru</h2>
@@ -40,14 +40,14 @@
 
       <section class="card-footer hidden hidden_block">
         <div class="humidity">
-          <img src="./img/humidity.png" alt="" class="humidityImg" />
+          <img src="./src/img/humidity.png" alt="" class="humidityImg" />
 
           <h1 class="humidity_text">53%</h1>
           <span>Humidity</span>
         </div>
 
         <div class="wind_speed">
-          <img src="./img/wind.png" alt="" class="windImg" />
+          <img src="./src/img/wind.png" alt="" class="windImg" />
           <h1 class="wind_speed_text">5.66 <span class="kmh">km/h</span></h1>
           <span> wind speed </span>
         </div>

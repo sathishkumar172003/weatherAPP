@@ -1,6 +1,4 @@
-// all the dom elements
-
-class App {
+class View {
   _searchTextEl = document.querySelector(".search_text");
   _formEl = document.querySelector("form");
   _cityNameEl = document.querySelector(".city_name");
@@ -11,11 +9,16 @@ class App {
   _hiddenBlockEl = document.querySelectorAll(".hidden_block");
   _data;
 
-  init() {}
+  render(data) {
+    this._data = data;
+    this._toggleWindow();
+    this._clear();
+    this._changeMarkup();
+  }
 
-  formEventHandler() {
+  formEventHandler(handler) {
     // prettier-ignore
-    this._formEl.addEventListener('submit', function(e){
+    this._formEl.addEventListener('submit', async function(e){
         
         e.preventDefault()
 
@@ -23,40 +26,9 @@ class App {
       
         const dataObj = Object.fromEntries(data)
   
-        this._networkApi(dataObj.city)
+        await handler(dataObj.city)
 
     }.bind(this))
-  }
-
-  _networkApi(city) {
-    const url = API_URL + "?units=metric&q=" + city + "&appid=" + API_KEY;
-
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) throw new Error("an error has occurred");
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-
-        this._data = {
-          title: `${
-            data.weather[0].main[0].toLowerCase() +
-            data.weather[0].main.slice(1).toLowerCase()
-          }`,
-          city: data.name,
-          temp: Math.round(data.main.temp),
-          humidity: data.main.humidity,
-          wind: data.wind.speed,
-        };
-
-        this._toggleWindow();
-
-        this._changeMarkup();
-      })
-      .catch((err) => {
-        alert("can not find any result ");
-      });
   }
 
   _toggleWindow() {
@@ -66,7 +38,6 @@ class App {
   }
 
   _changeMarkup() {
-    this._clear();
     this._cityNameEl.innerText = this._data.city;
     this._temperatureEl.innerText = this._data.temp;
     this._humidityEl.innerHTML = this._data.humidity;
@@ -74,8 +45,11 @@ class App {
 
     const imgArr = ["clear", "clouds", "drizzle", "mist", "rain", "snow"];
     if (imgArr.some((ele) => ele == this._data.title))
-      this._weatherImgEl.setAttribute("src", `./img/${this._data.title}.png`);
-    else this._weatherImgEl.setAttribute("src", `./img/clouds.png`);
+      this._weatherImgEl.setAttribute(
+        "src",
+        `./src/img/${this._data.title}.png`
+      );
+    else this._weatherImgEl.setAttribute("src", `./src/img/clouds.png`);
   }
 
   _clear() {
@@ -86,5 +60,4 @@ class App {
   }
 }
 
-const app = new App();
-app.formEventHandler();
+export default new View();
