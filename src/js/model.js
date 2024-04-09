@@ -1,4 +1,9 @@
-import { API_KEY, API_URL } from "./config.js";
+import {
+  API_KEY,
+  API_URL,
+  REVERSE_GEOCODING_KEY,
+  REVERSE_GEOCODING_URL,
+} from "./config.js";
 
 class WeatherReport {
   // private data that contains the weather data;
@@ -26,6 +31,26 @@ class WeatherReport {
         wind: data.wind.speed,
       };
     } catch (e) {
+      throw e;
+    }
+  }
+  //
+  async getGeoCodingJSON(lat, lon) {
+    //https://us1.locationiq.com/v1/reverse?key=pk.86d66879e780ff43ff016d3cca896c9a&lat=51.50344025&lon=-0.12770820958562096&format=json&
+    const url = `${REVERSE_GEOCODING_URL}?key=${REVERSE_GEOCODING_KEY}&lat=${lat}&lon=${lon}&format=json`;
+
+    try {
+      const response = await fetch(url);
+      console.log(response);
+      const data = await response.json();
+      console.log(data);
+
+      if (!response.ok) throw new Error("can not do reverse geo coding");
+
+      const city = data.address.city;
+      return city;
+    } catch (e) {
+      console.log(e);
       throw e;
     }
   }
